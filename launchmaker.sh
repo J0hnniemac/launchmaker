@@ -85,43 +85,38 @@ PSIZE[1]="750x1334"
 PSIZE[2]="640x1136"
 PSIZE[3]="2048x2732"
 PSIZE[4]="1563x2048"
+PSIZE[5]="1242x2208"
+PSIZE[6]="640x960"
+PSIZE[7]="320x480"
 
 LSIZE[0]="1920x1080"
 LSIZE[1]="1334x750"
 LSIZE[2]="1136x640"
 LSIZE[3]="2732x2048"
 LSIZE[4]="2048x1536"
+LSIZE[5]="2208x1242"
+LSIZE[6]="960x640"
+LSIZE[7]="480x320"
 
 
-PNAMEPOSTFIX[0]="7P6P-1080x1920"
-PNAMEPOSTFIX[1]="67-750x1334"
-PNAMEPOSTFIX[2]="SE-640x1136"
-PNAMEPOSTFIX[3]="BPro-2048x2732"
-PNAMEPOSTFIX[4]="Pad-1563x2048"
-
-LNAMEPOSTFIX[0]="7P6P-920x1080"
-LNAMEPOSTFIX[1]="67-1334x750"
-LNAMEPOSTFIX[2]="SE-1136x640"
-LNAMEPOSTFIX[3]="BPro-2732x1563"
-LNAMEPOSTFIX[4]="Pad-2048x1536"
 
 info "Portrait....."
-for i in {0..4}
+for i in {0..7}
 do
-	infox="Working on $pfilename-${PNAMEPOSTFIX[$i]}.png"
+	infox="Working on $pfilename-${PSIZE[$i]}.png"
 	info "$infox"
-   cmdStr="convert $P_FILE -resize ${PSIZE[$i]}! $pfilename-${PNAMEPOSTFIX[$i]}.png"
+   cmdStr="convert $P_FILE -resize ${PSIZE[$i]}! $pfilename-${PSIZE[$i]}.png"
    #echo $cmdStr
    eval $cmdStr
 done
 
 info "Landscape....."
 
-for i in {0..4}
+for i in {0..7}
 do
-    infox="Working on $lfilename-${LNAMEPOSTFIX[$i]}.png"
+    infox="Working on $lfilename-${LSIZE[$i]}.png"
     info "$infox"
-   cmdStr="convert $L_FILE -resize ${LSIZE[$i]}! $lfilename-${LNAMEPOSTFIX[$i]}.png"
+   cmdStr="convert $L_FILE -resize ${LSIZE[$i]}! $lfilename-${LSIZE[$i]}.png"
    #echo $cmdStr
    eval $cmdStr
 done
